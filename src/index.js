@@ -9,16 +9,16 @@ function refreshTemp(response){
         let date = new Date(response.data.time * 1000);
         let emoji = document.querySelector("#emoji");
 
-        emoji.innerHTML = `<img src = "${response.data.condition.icon_url}" class= "weather-emoji"/>`;
 
-    console.log(response.data);
     
     newCity.innerHTML = response.data.city;
     currentTemperature.innerHTML = Math.round(temperature);
+    emoji.innerHTML = `<img src = "${response.data.condition.icon_url}" class= "weather-emoji"/>`;
         cityHumidity.innerHTML = `${response.data.temperature.humidity}%`;
         cityDetail.innerHTML = response.data.condition.description;
         cityWind.innerHTML = `${response.data.wind.speed}km/h`;
         cityTime.innerHTML = formatDate(date);
+
 }
 
 function formatDate(date){
