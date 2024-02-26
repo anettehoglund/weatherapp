@@ -3,6 +3,11 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 
+header{
+    border-bottom: 1px solid #000;
+    padding-bottom: 30px;
+}
+
 .weatherapp{
     background-color: #e3e1e1;
     max-width: 600px;
@@ -12,3 +17,32 @@ body{
     border-radius: 10px;
 }
 
+.searchform-input{
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+    padding: 10px 15px;
+}
+
+.searchform-button{
+    background-color: #4d4b4b;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+footer{
+    padding: 20px 0 0 0;
+    font-size: 11px;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+}
