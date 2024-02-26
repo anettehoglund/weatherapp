@@ -20,6 +20,11 @@ main{
     padding: 30px;
     box-shadow: 0 20px 60px hsla(200, 22%, 11%, 0.5);
     border-radius: 10px;
+    margin-top: 60px;
+}
+
+.searchform{
+    text-align: center;
 }
 
 .searchform-input{
