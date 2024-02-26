@@ -1,0 +1,14 @@
+body{
+    background-color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.weatherapp{
+    background-color: #e3e1e1;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    box-shadow: 0 20px 60px hsla(200, 22%, 11%, 0.5);
+    border-radius: 10px;
+}
+
