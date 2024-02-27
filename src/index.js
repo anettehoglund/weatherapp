@@ -8,8 +8,7 @@ function refreshTemp(response){
         let cityTime = document.querySelector("#time");
         let date = new Date(response.data.time * 1000);
         let emoji = document.querySelector("#emoji");
-
-
+        
     
     newCity.innerHTML = response.data.city;
     currentTemperature.innerHTML = Math.round(temperature);
