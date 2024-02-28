@@ -18,6 +18,7 @@ function refreshTemp(response){
         cityWind.innerHTML = `${response.data.wind.speed}km/h`;
         cityTime.innerHTML = formatDate(date);
 
+    getForecast(response.data.city);
 }
 
 function formatDate(date){
@@ -48,23 +49,44 @@ function newSearchCity (event) {
     searchCityInput(searchFormInput.value);
 }
 
-function displayForecast(){
+function formatDay(timestamp){
+    let date = new Date(timestamp * 1000);
+    let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
+
+    return days[date.getDay()];
+}
+
+function getForecast(city){
+let apiKey = "8f100a03dbef7b07767405e3a2t1o8ce";
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response){
+    console.log(response.data);
 let forecast = document.querySelector("#forecast");
 
-let days = ["Thu", "Wed", "Thu", "Fri", "Sat"];
 let forecastHtml = "";
 
-days.forEach(function(day){
-forecastHtml =
-  forecastHtml + `
+response.data.daily.forEach(function(day, index){
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
     <div class="weatherForecast">
-        <div class="forecastDay">${day}</div>
-        <div class="forecastEmoji">🌧️</div>
+        <div class="forecastDay">${formatDay(day.time)}</div>
+        <div>
+            <img src="${day.condition.icon_url}" class="forecastEmoji"></div>
             <div class="forecastTemp">
-                <div class="forecastTempMax"><strong>18° </strong></div>
-                <div class="forecastTempMini">12°</div>
+                <span class="forecastTempMax"><strong>${Math.round(
+                  day.temperature.maximum
+                )}° </strong></span>
+                <span class="forecastTempMini">${Math.round(
+                  day.temperature.minimum
+                )}°</span>
             </div>
     </div>`;
+    }
 });
 forecast.innerHTML = forecastHtml;
 }
@@ -75,4 +97,3 @@ let searchForm = document.querySelector("#searchform");
 searchForm.addEventListener("submit", newSearchCity);
 
 searchCityInput ("Stockholm");
-displayForecast();

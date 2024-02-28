@@ -83,11 +83,11 @@ main{
 }
 
 .weatherForecast{
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
-    display: inline-block;
-    margin: 30px;
-    max-width: max-content;
+    display: inline-table;
+    padding: 28px;
+    max-width:fit-content;
 }
 
 .forecastDay{
@@ -100,6 +100,9 @@ main{
     opacity: 0.4;
 }
 
+.forecastEmoji{
+    width: 50px;
+}
 
 footer{
     padding: 20px 0 0 0;
