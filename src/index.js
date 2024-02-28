@@ -8,7 +8,7 @@ function refreshTemp(response){
         let cityTime = document.querySelector("#time");
         let date = new Date(response.data.time * 1000);
         let emoji = document.querySelector("#emoji");
-        
+
     
     newCity.innerHTML = response.data.city;
     currentTemperature.innerHTML = Math.round(temperature);
@@ -48,7 +48,31 @@ function newSearchCity (event) {
     searchCityInput(searchFormInput.value);
 }
 
+function displayForecast(){
+let forecast = document.querySelector("#forecast");
+
+let days = ["Thu", "Wed", "Thu", "Fri", "Sat"];
+let forecastHtml = "";
+
+days.forEach(function(day){
+forecastHtml =
+  forecastHtml + `
+    <div class="weatherForecast">
+        <div class="forecastDay">${day}</div>
+        <div class="forecastEmoji">🌧️</div>
+            <div class="forecastTemp">
+                <div class="forecastTempMax"><strong>18° </strong></div>
+                <div class="forecastTempMini">12°</div>
+            </div>
+    </div>`;
+});
+forecast.innerHTML = forecastHtml;
+}
+
+
+
 let searchForm = document.querySelector("#searchform");
 searchForm.addEventListener("submit", newSearchCity);
 
 searchCityInput ("Stockholm");
+displayForecast();
